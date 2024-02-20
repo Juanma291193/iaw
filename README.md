@@ -1,2 +1,2 @@
 # iaw
-joaquinma su clase
+Primeros pasos programando en php.
