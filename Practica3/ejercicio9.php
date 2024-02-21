@@ -7,7 +7,7 @@
 </head>
 <body>
     <?php
-        echo "Hola, soy una modificación de prueba.";
+        echo "Hola, soy una modificación de prueba. Segunda prueba en clase.";
     ?>
 </body>
 </html>
