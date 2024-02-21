@@ -8,6 +8,7 @@
 <body>
     <?php
         echo "Hola, soy una modificación de prueba. Segunda prueba en clase.";
+        echo "Nunca viene mal una prueba extra.";
     ?>
 </body>
 </html>
