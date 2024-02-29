@@ -11,11 +11,11 @@
         $y = 2;
 
         if ($x > $y) {
-            echo "$x es mayor que $y ".'<br>';
+            echo "<h1> $x es mayor que $y </h1>".'<br>';
         } elseif ($x < $y) {
-            echo "$x es menor que $y.".'<br>';
+            echo "<h1> $x es menor que $y </h1>".'<br>';
         } else {
-            echo "$x es igual a $y ".'<br>';
+            echo "<h1> $x es igual a $y </h1>".'<br>';
         }
 
     ?>
