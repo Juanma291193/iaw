@@ -9,13 +9,14 @@
     <?php
         $x = 33;
         $y = 3;
+        echo "<h1> x vale $x ---- y vale $y. </h1>";
 
         if ($x > $y) {
-            echo "<h1> $x es mayor que $y . </h1>".'<br>';
+            echo "<h2> $x es mayor que $y . </h2>".'<br>';
         } elseif ($x < $y) {
-            echo "<h1> $x es menor que $y . </h1>".'<br>';
+            echo "<h2> $x es menor que $y . </h2>".'<br>';
         } else {
-            echo "<h1> $x es igual a $y </h1>".'<br>';
+            echo "<h2> $x es igual a $y </h2>".'<br>';
         }
 
         echo "---------------------------------------------";
