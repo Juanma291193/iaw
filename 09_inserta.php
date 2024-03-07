@@ -19,21 +19,49 @@
 
 		//Me conecto
 
-		
+		$host = "localhost";
+        $user = "phpmyadmin";
+        $pass = "phpmyadmin";
+        $database = "biblioteca";
 
-		// Inserto los datos en BBDD
-	    	$insert_alumno = "INSERT INTO alumnos 
-	  		(codalumno, nombre, direccion, cursoId)
-			VALUES($codalum, '$nombre', '$direccion', $curso);";
+        //Conectando
+        $con = new mysqli($host, $user, $pass, $database);
 
+		//Selecciono la base de datos
 
-	if ($result = mysqli_query($conector, $insert_alumno)) {
-	    echo "<h3 class='center'>Alumno " . $nombre ." creado correctamente."."<br/>"."</h3>";
-  		    
-	} else {
-	    echo ("No ha sido posible registrar el alumno -> ". mysqli_error($conector))."<br/>"."<br/>";
-	}
-	    
+		mysqli_select_db($con, "biblioteca");
+
+		//Verifico que se ha rellenado el formulario de libros
+
+		if ($titulo) {
+			// Inserto los datos en BBDD
+			$insert_libro = "INSERT INTO libros 
+			(titulo, autor, genero, editorial, isbn, cantidad)
+			VALUES('$titulo', '$autor', '$genero', '$editorial', $isbn, $cantidad);";
+
+			if ($result = mysqli_query($con, $insert_libro)) {
+			echo "<h3 class='center'>Libro " . $titulo ." insertado correctamente."."<br/>"."</h3>";
+					
+			} else {
+			echo ("No ha sido posible registrar el libro -> ". mysqli_error($con))."<br/>"."<br/>";
+			}
+		}
+
+		//Verifico que se ha rellenado el formulario de usuarios
+		if ($nombre) {
+			// Inserto los datos en BBDD
+			$insert_usu = "INSERT INTO usuarios 
+			(nombre, email, telefono)
+			VALUES('$nombre', '$email', $telefono);";
+
+			if ($result = mysqli_query($con, $insert_usu)) {
+			echo "<h3 class='center'>Usuario " . $nombre ." insertado correctamente."."<br/>"."</h3>";
+					
+			} else {
+			echo ("No ha sido posible registrar el usuario -> ". mysqli_error($con))."<br/>"."<br/>";
+			}
+		}
+
 	?>
 </body>
 </html>

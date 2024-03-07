@@ -7,7 +7,6 @@
 </head>
 <body>
     <?php
-        //De momento no funciona
         $host = "localhost";
         $user = "phpmyadmin";
         $pass = "phpmyadmin";
