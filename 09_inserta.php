@@ -7,19 +7,19 @@
 </head>
 <body>
 <?php
-		//Recojo todas las variables de ambos formularios
-		$titulo = $_POST['titulo'];
-		$autor = $_POST['autor'];
-		$genero = $_POST['genero'];
-		$editorial = $_POST['editorial'];
-		$isbn = $_POST['isbn'];
-		$cantidad = $_POST['cantidad'];
-		$nombre = $_POST['nombre'];
-		$email = $_POST['email'];
-		$telefono = $_POST['telefono'];
+	//Recojo todas las variables de ambos formularios
+	$titulo = $_POST['titulo'];
+	$autor = $_POST['autor'];
+	$genero = $_POST['genero'];
+	$editorial = $_POST['editorial'];
+	$isbn = $_POST['isbn'];
+	$cantidad = $_POST['cantidad'];
+	$nombre = $_POST['nombre'];
+	$email = $_POST['email'];
+	$telefono = $_POST['telefono'];
 
-		//Me conecto
-		$host = "localhost";
+	//Me conecto
+	$host = "localhost";
         $user = "phpmyadmin";
         $pass = "phpmyadmin";
         $database = "biblioteca";
