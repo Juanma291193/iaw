@@ -7,10 +7,19 @@
 </head>
 <body>
 <?php
-		$codalum = $_POST['codalum'];
+		$titulo = $_POST['titulo'];
+		$autor = $_POST['autor'];
+		$genero = $_POST['genero'];
+		$editorial = $_POST['editorial'];
+		$isbn = $_POST['isbn'];
+		$cantidad = $_POST['cantidad'];
 		$nombre = $_POST['nombre'];
-		$direccion = $_POST['direccion'];
-		$curso = $_POST['curso'];
+		$email = $_POST['email'];
+		$telefono = $_POST['telefono'];
+
+		//Me conecto
+
+		
 
 		// Inserto los datos en BBDD
 	    	$insert_alumno = "INSERT INTO alumnos 

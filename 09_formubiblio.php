@@ -19,6 +19,7 @@
         Nombre: <input type ="text" name="nombre"/> <br>
         Email: <input type ="text" name="email"/> <br>
         Telefono: <input type ="text" name="telefono"/> <br>
+        <p><input type="submit"></p>
     </form>
     </body>
 </html>
