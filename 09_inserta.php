@@ -7,6 +7,7 @@
 </head>
 <body>
 <?php
+		//Recojo todas las variables de ambos formularios
 		$titulo = $_POST['titulo'];
 		$autor = $_POST['autor'];
 		$genero = $_POST['genero'];
@@ -18,7 +19,6 @@
 		$telefono = $_POST['telefono'];
 
 		//Me conecto
-
 		$host = "localhost";
         $user = "phpmyadmin";
         $pass = "phpmyadmin";
@@ -28,7 +28,6 @@
         $con = new mysqli($host, $user, $pass, $database);
 
 		//Selecciono la base de datos
-
 		mysqli_select_db($con, "biblioteca");
 
 		//Verifico que se ha rellenado el formulario de libros
