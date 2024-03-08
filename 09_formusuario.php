@@ -6,8 +6,9 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Introduzca los datos de un nuevo usuario</h1> <br>
-    <form action= "09_inserta.php" method = "post">
+    <div class="container mt-5">
+    <h1>Introduzca los datos del nuevo libro</h1>
+        <form action= "09_inserta.php" method = "post">
         <p>Nuevo usuario</p> <br>
         Nombre: <input type ="text" name="nombre"/> <br>
         Email: <input type ="text" name="email"/> <br>
