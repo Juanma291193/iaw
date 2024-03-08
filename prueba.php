@@ -7,6 +7,8 @@
 </head>
 <body>
     <?php
+        //Repositorio de openwebinar
+        //https://github.com/OpenWebinarsNet/Curso-PHP-Ampliando-Conceptos-/blob/main/4.%20MySQL/Actualizaci%C3%B3n%20de%20datos/formulario4.php
         //Recojo todas las variables de todos los formularios
         $titulo = $_POST['titulo'];
         $autor = $_POST['autor'];
