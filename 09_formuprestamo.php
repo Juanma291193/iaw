@@ -11,10 +11,7 @@
         <h1>Introduzca los datos del nuevo préstamo</h1>
         <form action= "09_inserta.php" method = "post">
             <?php
-                //Para fijarme de un código:
-                //https://github.com/OpenWebinarsNet/Curso-PHP-Ampliando-Conceptos-/blob/main/4.%20MySQL/Actualizaci%C3%B3n%20de%20datos/formulario4.php
-            ?>
-
+            
             <div class="form-group">
                 <label for="nombre">Nombre:</label>
                 <input type ="text" class="form-control" id="nombre" placeholder="Introduzca un nombre"/>
