@@ -36,6 +36,7 @@
                 <input type ="text" class="form-control" id="cantidad" placeholder="Introduzca un cantidad"/>
             </div>
             <button type="submit" class="btn btn-primary">Insertar</button>
+            <button type ="reset" class="btn btn-primary">Restablecer</button>
         </form>
     </body>
 </html>

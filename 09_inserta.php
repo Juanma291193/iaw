@@ -7,7 +7,7 @@
 </head>
 <body>
 <?php
-	//Recojo todas las variables de ambos formularios
+	//Recojo todas las variables de todos los formularios
 	$titulo = $_POST['titulo'];
 	$autor = $_POST['autor'];
 	$genero = $_POST['genero'];
@@ -17,6 +17,10 @@
 	$nombre = $_POST['nombre'];
 	$email = $_POST['email'];
 	$telefono = $_POST['telefono'];
+	$pres_titulo = $_POST['seleccionar'];
+	$pres_nombre = $_POST['seleccionar2'];
+	$fechainicio = $_POST['fechainicio'];
+	$fechafin = $_POST['fechafin'];
 
 	//Me conecto
 	$host = "localhost";
@@ -60,6 +64,28 @@
 			echo ("No ha sido posible registrar el usuario -> ". mysqli_error($con))."<br/>"."<br/>";
 			}
 		}
+
+		//Verifico que se ha rellenado el formulario de préstamos
+
+	if ($pres_titulo) {
+		//Consulto para obtener los id de usuario y libro
+		$consulibro= "SELECT id FROM libros WHERE titulo = '$pres_titulo'";
+		$consusuario= "SELECT id FROM usuarios WHERE nombre = '$pres_nombre'";
+		$id_libro=mysqli_query($con,$consulibro);
+		$id_usuario=mysqli_query($con,$consusuario);
+
+		//Inserto en la base de datos
+		$insert_pres = "INSERT INTO prestamos 
+		(id_libro, id_usuario, fecha_prestamo, fecha_devolucion)
+		VALUES($id_libro, $id_usuario, $fechainicio, $fechafin);";
+		//Verifico
+		if ($result = mysqli_query($con, $insert_usu)) {
+			echo "<h3 class='center'>Préstamo de " . $pres_titulo ." insertado correctamente."."<br/>"."</h3>";
+					
+		} else {
+			echo ("No ha sido posible registrar el usuario -> ". mysqli_error($con))."<br/>"."<br/>";
+		}
+	}
 
 	?>
 </body>

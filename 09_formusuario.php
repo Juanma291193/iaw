@@ -23,6 +23,7 @@
                 <input type ="text" class="form-control" id="telefono" placeholder="Introduzca un teléfono"/>
             </div>
             <button type="submit" class="btn btn-primary">Insertar</button>
+            <button type ="reset" class="btn btn-primary">Restablecer</button>
         </form>
         </div>
     </body>
