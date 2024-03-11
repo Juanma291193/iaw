@@ -69,29 +69,15 @@
 
 	if ($pres_titulo) {
 		//Consulto para obtener los id de usuario y libro
-		$consulibro = "SELECT id FROM libros WHERE titulo = '$pres_titulo'";
-		$consusuario = "SELECT id FROM usuarios WHERE nombre = '$pres_nombre'";
-
-		$libros = mysqli_query($con, $consulibro);
-		if (!$libros) {
-			die("Error al ejecutar la consulta de libros: " . $con->error);
-		}
-		while ($id_libro = $libros->fetch_row()) {
-			$libro_id = $id_libro[0];
-		}
-
-		$usuarios = mysqli_query($con, $consusuario);
-		if (!$usuarios) {
-			die("Error al ejecutar la consulta de usuarios: " . $con->error);
-		}
-		while ($id_usuario = $usuarios->fetch_row()) {
-			$usuario_id = $id_usuario[0];
-		}
+		$consulibro= "SELECT id FROM libros WHERE titulo = '$pres_titulo'";
+		$consusuario= "SELECT id FROM usuarios WHERE nombre = '$pres_nombre'";
+		$id_libro=mysqli_query($con,$consulibro);
+		$id_usuario=mysqli_query($con,$consusuario);
 
 		//Inserto en la base de datos
 		$insert_pres = "INSERT INTO prestamos 
 		(id_libro, id_usuario, fecha_prestamo, fecha_devolucion)
-		VALUES($libro_id, $usuario_id, $fechainicio, $fechafin);";
+		VALUES($id_libro, $id_usuario, $fechainicio, $fechafin);";
 		//Verifico
 		if ($result = mysqli_query($con, $insert_usu)) {
 			echo "<h3 class='center'>Préstamo de " . $pres_titulo ." insertado correctamente."."<br/>"."</h3>";

@@ -25,15 +25,11 @@
     $pres_titulo = "Cien años de soledad";
     $pres_nombre = "Paco";
 
-    //Escapar los valores de las variables y usar comillas simples en las consultas
-    $pres_titulo_esc = $con->real_escape_string($pres_titulo);
-    $pres_nombre_esc = $con->real_escape_string($pres_nombre);
-
-    $consulibro = "SELECT id FROM libros WHERE titulo = '$pres_titulo_esc'";
-    $consusuario = "SELECT id FROM usuarios WHERE nombre = '$pres_nombre_esc'";
+    $consulibro = "SELECT id FROM libros WHERE titulo = '$pres_titulo'";
+    $consusuario = "SELECT id FROM usuarios WHERE nombre = '$pres_nombre'";
 
     //Hago las consultas
-    $libros = $con->query($consulibro);
+    $libros = mysqli_query($con, $consulibro);
     if (!$libros) {
         die("Error al ejecutar la consulta de libros: " . $con->error);
     }
@@ -42,7 +38,7 @@
         echo "<br>";
     }
 
-    $usuarios = $con->query($consusuario);
+    $usuarios = mysqli_query($con, $consusuario);
     if (!$usuarios) {
         die("Error al ejecutar la consulta de usuarios: " . $con->error);
     }
