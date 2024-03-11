@@ -72,12 +72,12 @@
 				$consulibro = "SELECT id FROM libros WHERE titulo = '$pres_titulo'";
 				$consusuario = "SELECT id FROM usuarios WHERE nombre = '$pres_nombre'";
 
-				//Consulto 
+				//Consulto y recojo el valor del array de consulta, en una variable
 				$libros = mysqli_query($con, $consulibro);
 				if (!$libros) {
 					die("Error al ejecutar la consulta de libros: " . mysqli_error($con));
 				}
-				while ($id_libro = $libros->fetch_row()) {
+				while ($id_libro = mysqli_fetch_row($libros)) {
 					$libro_id = $id_libro[0];
 				}
 
@@ -85,20 +85,25 @@
 				if (!$usuarios) {
 					die("Error al ejecutar la consulta de usuarios: " . mysqli_error($con));
 				}
-				while ($id_usuario = $usuarios->fetch_row()) {
+				while ($id_usuario = mysqli_fetch_row($usuarios)) {
 					$usuario_id = $id_usuario[0];
 				}
+				
+				//Preparo las variables de fecha para que tengan el formato adecuado
+				$fechainicio = date('Y-m-d', strtotime($fechainicio));
+				$fechafin = date('Y-m-d', strtotime($fechafin));
 
 				//Inserto en la base de datos
 				$insert_pres = "INSERT INTO prestamos 
-				(id_libro, id_usuario, fecha_prestamo, fecha_devolucion)
-				VALUES($libro_id, $usuario_id, $fechainicio, $fechafin);";
+								(id_libro, id_usuario, fecha_prestamo, fecha_devolucion)
+								VALUES($libro_id, $usuario_id, '$fechainicio', '$fechafin');";
+
 				//Verifico
 				if ($result = mysqli_query($con, $insert_pres)) {
 					echo "<h3 class='center'>Préstamo de " . $pres_titulo ." insertado correctamente."."<br/>"."</h3>";
 							
 				} else {
-					echo ("No ha sido posible registrar el usuario -> ". mysqli_error($con))."<br/>"."<br/>";
+					echo ("No ha sido posible registrar el préstamo -> ". mysqli_error($con))."<br/>"."<br/>";
 				}
 			}
 

@@ -7,49 +7,63 @@
 </head>
 <body>
     <?php
-    //Esta es la corrección que ofrece chatgpt
-    //Me conecto
-    $host = "localhost";
-    $user = "phpmyadmin";
-    $pass = "phpmyadmin";
-    $database = "biblioteca";
+        // Me conecto
+        $host = "localhost";
+        $user = "phpmyadmin";
+        $pass = "phpmyadmin";
+        $database = "biblioteca";
 
-    $con = new mysqli($host, $user, $pass, $database);
+        $con = new mysqli($host, $user, $pass, $database);
 
-    //Verificar la conexión
-    if ($con->connect_error) {
-        die("Error al conectar con la base de datos: " . $con->connect_error);
-    }
+        // Verificar la conexión
+        if ($con->connect_error) {
+            die("Error al conectar con la base de datos: " . $con->connect_error);
+        }
 
-    //Preparo las consultas
-    $pres_titulo = "Cien años de soledad";
-    $pres_nombre = "Paco";
+        // Preparo las consultas
+        $pres_titulo = "Orgullo y prejuicio";
+        $pres_nombre = "Elena Castro";
 
-    $consulibro = "SELECT id FROM libros WHERE titulo = '$pres_titulo'";
-    $consusuario = "SELECT id FROM usuarios WHERE nombre = '$pres_nombre'";
+        $consulibro = "SELECT id FROM libros WHERE titulo = '$pres_titulo'";
+        $consusuario = "SELECT id FROM usuarios WHERE nombre = '$pres_nombre'";
 
-    //Hago las consultas
-    $libros = mysqli_query($con, $consulibro);
-    if (!$libros) {
-        die("Error al ejecutar la consulta de libros: " . $con->error);
-    }
-    while ($id_libro = $libros->fetch_row()) {
-        echo "Libro: " . $id_libro[0];
-        echo "<br>";
-    }
+        // Ejecuto las consultas
+        $libros = mysqli_query($con, $consulibro);
+        if (!$libros) {
+            die("Error al ejecutar la consulta de libros: " . mysqli_error($con));
+        }
 
-    $usuarios = mysqli_query($con, $consusuario);
-    if (!$usuarios) {
-        die("Error al ejecutar la consulta de usuarios: " . $con->error);
-    }
-    while ($id_usuario = $usuarios->fetch_row()) {
-        echo "Usuario: " . $id_usuario[0];
-        echo "<br>";
-    }
+        while ($id_libro = mysqli_fetch_row($libros)) {
+            $libro_id = $id_libro[0];
+        }
 
-    //Cerrar la conexión
-    $con->close();
+        $usuarios = mysqli_query($con, $consusuario);
+        if (!$usuarios) {
+            die("Error al ejecutar la consulta de usuarios: " . mysqli_error($con));
+        }
 
+        while ($id_usuario = mysqli_fetch_row($usuarios)) {
+            $usuario_id = $id_usuario[0];
+        }
+
+        // Defino las variables de fechas
+        $fechainicio = date('Y-m-d');
+        $fechafin = date('Y-m-d', strtotime('+7 days'));
+
+        // Inserto en la base de datos
+        $insert_pres = "INSERT INTO prestamos 
+                        (id_libro, id_usuario, fecha_prestamo, fecha_devolucion)
+                        VALUES($libro_id, $usuario_id, '$fechainicio', '$fechafin')";
+
+        // Verifico
+        if (mysqli_query($con, $insert_pres) === TRUE) {
+            echo "<h3 class='center'>Préstamo de " . $pres_titulo . " insertado correctamente." . "<br/>" . "</h3>";
+        } else {
+            echo "No ha sido posible registrar el préstamo: " . mysqli_error($con) . "<br/>" . "<br/>";
+        }
+
+        // Cerrar la conexión
+        $con->close();
     ?>
 </body>
 </html>
