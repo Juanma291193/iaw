@@ -68,13 +68,14 @@
 		//Verifico que se ha rellenado el formulario de préstamos
 
 	if ($pres_titulo) {
-		//Consulto para obtener los id de usuario y libro
+		//Preparo las consultas para obtener los id de usuario y libro
 		$consulibro = "SELECT id FROM libros WHERE titulo = '$pres_titulo'";
 		$consusuario = "SELECT id FROM usuarios WHERE nombre = '$pres_nombre'";
 
+		//Consulto 
 		$libros = mysqli_query($con, $consulibro);
 		if (!$libros) {
-			die("Error al ejecutar la consulta de libros: " . $con->error);
+			die("Error al ejecutar la consulta de libros: " . mysqli_error($con));
 		}
 		while ($id_libro = $libros->fetch_row()) {
 			$libro_id = $id_libro[0];
@@ -82,7 +83,7 @@
 
 		$usuarios = mysqli_query($con, $consusuario);
 		if (!$usuarios) {
-			die("Error al ejecutar la consulta de usuarios: " . $con->error);
+			die("Error al ejecutar la consulta de usuarios: " . mysqli_error($con));
 		}
 		while ($id_usuario = $usuarios->fetch_row()) {
 			$usuario_id = $id_usuario[0];
@@ -93,7 +94,7 @@
 		(id_libro, id_usuario, fecha_prestamo, fecha_devolucion)
 		VALUES($libro_id, $usuario_id, $fechainicio, $fechafin);";
 		//Verifico
-		if ($result = mysqli_query($con, $insert_usu)) {
+		if ($result = mysqli_query($con, $insert_pres)) {
 			echo "<h3 class='center'>Préstamo de " . $pres_titulo ." insertado correctamente."."<br/>"."</h3>";
 					
 		} else {
