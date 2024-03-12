@@ -33,7 +33,7 @@
         //Preparo las consultas para obtener los id de pan y cliente
         $consupan = "SELECT id FROM panes WHERE tipo = '$pan'";
         $consucliente = "SELECT id FROM clientes WHERE dni = '$dni'";
-
+        
         //Consulto y recojo el valor del array de consulta, en una variable
         $panes = mysqli_query($con, $consupan);
         if (!$panes) {
