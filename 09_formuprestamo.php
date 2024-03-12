@@ -62,11 +62,11 @@
             </div>
             <div class="form-group">
                 <label for="fechainicio">Elige una fecha de inicio:</label>
-                <input type ="date" class="form-control" id="fechainicio" />
+                <input type ="date" class="form-control" name="fechainicio" id="fechainicio" />
             </div>
             <div class="form-group">
                 <label for="fechafin">Elige una fecha de finalización del préstamo:</label>
-                <input type ="date" class="form-control" id="fechafin" />
+                <input type ="date" class="form-control" name="fechafin" id="fechafin" />
             </div>
             <button type="submit" class="btn btn-primary">Insertar</button>
             <button type ="reset" class="btn btn-primary">Restablecer</button>
