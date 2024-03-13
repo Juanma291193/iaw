@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,28 +25,39 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
 </head>
 
 <body>
-    <!-- Page Content -->
     <?php
+        include "includes/menu.php";
+        
         $page = $_GET['page'];
 
-        switch ($page) {
-            case 'login':
-                include "includes/login.inc.php";
-                break;
-            
+        switch ( $page) 
+        {
+            case 'listado':
+            include "actions/listado.act.php";
+            include "includes/listado.inc.php";
+            break;
+
+            case 'autores':
+            include "includes/listado_autores.inc.php";
+            break;
+
             case 'new':
-                include "includes/new.inc.php";
-                break;
+            include "includes/new_foto.inc.php";
+            break;
+
+            case 'edit':
+            include "includes/edit_foto.inc.php";
+            break;
+            
+            default:
+            # code...
+            break;
         }
-
     ?>
-        
         <hr>
-
         <!-- Footer -->
         <footer>
             <div class="row">
@@ -61,11 +71,9 @@
     <!-- /.container -->
 
     <!-- jQuery -->
-    <script src="/iaw/Practica2/assets/js/jquery.js"></script>
+    <script src="/iaw/Practica2/assets/bootstrap/js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="/iaw/Practica2/assets/js/bootstrap.min.js"></script>
+    <script src="/iaw/Practica2/assets/bootstrap/js/bootstrap.min.js"></script>
 
 </body>
-
-</html>
