@@ -25,7 +25,7 @@
     }
     else
     {
-      location.href = "delete.php?page=autores&id=" + id;
+      location.href = "/iaw/Practica2/admin/delete.php?page=autores&id=" + id;
     }
   }
 
@@ -56,10 +56,10 @@
                     <?php
                         foreach ( $rows as $row)  {
                             if ( $row['enabled'] == "1") {
-                                $enabled = "<img src='../assets/img/activo.png'  width=20px>";
+                                $enabled = "<img src='/iaw/Practica2/assets/img/activo.png'  width=20px>";
                             }
                             else {
-                                $enabled = "<img src='../assets/img/no_activo.png' width=20px>";
+                                $enabled = "<img src='/iaw/Practica2/assets/img/no_activo.png' width=20px>";
                             }
 
                             echo '
@@ -68,7 +68,7 @@
                                 <td>'.$row['email'].'</td>
                                 <td>'.date( "d/m/Y H:s:i", strtotime( $row['created'])).'</td>
                                 <td>'.$enabled.'</td>
-                                <td><a href="#" OnClick="delete_post('.$row['id'].')"><img src="../assets/img/delete_2.png"  width=20px></a></td>
+                                <td><a href="#" OnClick="delete_post('.$row['id'].')"><img src="/iaw/Practica2/assets/img/delete_2.png"  width=20px></a></td>
                                 </tr>
                             ';  
                         }

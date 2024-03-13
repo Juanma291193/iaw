@@ -27,6 +27,6 @@
         $_SESSION['email'] = $rows[0]['email'];
         $_SESSION['session_id'] = session_id();
 
-        header ( "location: ../home.php?page=listado");
+        header ( "location: /iaw/Practica2/admin/home.php?page=listado");
     }
 ?>

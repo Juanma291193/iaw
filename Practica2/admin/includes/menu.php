@@ -14,13 +14,13 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav pull-right">
                 <li>
-                    <a href="home.php?page=listado">[Listado]</a>
+                    <a href="/iaw/Practica2/admin/home.php?page=listado">[Listado]</a>
                 </li>
                 <li>
-                    <a href="home.php?page=autores">[Listado autores]</a>
+                    <a href="/iaw/Practica2/admin/home.php?page=autores">[Listado autores]</a>
                 </li>
                 <li>
-                    <a href="home.php?page=new">[Añadir foto]</a>
+                    <a href="/iaw/Practica2/admin/home.php?page=new">[Añadir foto]</a>
                 </li>
             </ul>
         </div>

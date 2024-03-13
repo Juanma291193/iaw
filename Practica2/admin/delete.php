@@ -18,5 +18,5 @@
 
     Close( $connection);
 
-    header( "location: home.php?page=" . $page);
+    header( "location: /iaw/Practica2/admin/home.php?page=" . $page);
 ?>

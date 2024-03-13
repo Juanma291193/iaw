@@ -19,7 +19,7 @@
     }
 
     if ( $_FILES['fichero']['name'] != "") {
-        move_uploaded_file( $_FILES["fichero"]["tmp_name"], "../../images/" . $_FILES["fichero"]["name"]);
+        move_uploaded_file( $_FILES["fichero"]["tmp_name"], "/iaw/Practica2/images/" . $_FILES["fichero"]["name"]);
 
         $fichero = $_FILES["fichero"]["name"];
         $size = $_FILES["fichero"]["size"];
@@ -35,5 +35,5 @@
 
     Close( $connection);
 
-    header ( "location: ../home.php?page=listado");
+    header ( "location: /iaw/Practica2/admin/home.php?page=listado");
 ?>

@@ -25,5 +25,5 @@
 
     Close( $connection);
 
-    header ( "location: /admin/home.php");
+    header ( "location: /iaw/Practica2/admin/home.php");
 ?>

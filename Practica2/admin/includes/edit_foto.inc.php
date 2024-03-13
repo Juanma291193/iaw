@@ -36,7 +36,7 @@
         <div class="col-lg-2 text-left"></div>
         <div class="col-lg-10 text-left">
        
-            <form role="form" action="actions/edit_foto.act.php" method="post" enctype="multipart/form-data">
+            <form role="form" action="/iaw/Practica2/admin/actions/edit_foto.act.php" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="id" id="id" value="<?php echo $rows_fotos['id']; ?>">
                 <div class="form-group row">
                     <label for="author_id" class="col-lg-2 col-form-label">Autor</label>
